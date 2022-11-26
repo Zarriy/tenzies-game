@@ -40,11 +40,17 @@ function App() {
   };
 
   const rollUnholdDice = () => {
-    setDice((prevDice) => {
-      return prevDice.map((dice, i) =>
-        !dice.hold ? { ...dice, value: randomValue() } : dice
-      );
-    });
+    if (!win) {
+      setDice((prevDice) => {
+        return prevDice.map((dice, i) =>
+          !dice.hold ? { ...dice, value: randomValue() } : dice
+        );
+      });
+    }
+    if (win) {
+      setDice(createDice());
+      setWin(!win);
+    }
   };
 
   return (
