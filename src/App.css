@@ -1,0 +1,31 @@
+#root {
+  margin: 0 auto;
+}
+.game-div {
+  width: 600px;
+  background-color: white;
+  border-radius: 11px;
+  padding: 15px 30px;
+  margin: 0 auto;
+}
+.dice-div {
+  padding: 4px 8px;
+  box-shadow: 0 0 8px 2px #00000025;
+  border-radius: 4px;
+}
+.Dice-Box {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  gap: 30px;
+  width: 500px;
+  margin: 0 auto;
+  padding: 10px 20px;
+}
+.roll-dice {
+  background-color: #0b2434;
+  color: white;
+  grid-area: 3/3;
+}
+.roll-dice:hover {
+  background-color: #340b2eee;
+}
