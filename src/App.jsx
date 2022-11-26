@@ -1,9 +1,20 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Die from "./die";
 import "./App.css";
 
 function App() {
   const [dice, setDice] = useState(createDice());
+  const [win, setWin] = useState(false);
+
+  useEffect(() => {
+    const firstHeld = dice[0].value;
+    const heldD = dice.every((die) => die.hold);
+    const heldSame = dice.every((die) => die.value === firstHeld);
+    if (heldD && heldSame) {
+      setWin(true);
+    }
+  }, [dice]);
+
   function randomValue() {
     return Math.ceil(Math.random() * 6);
   }
@@ -30,7 +41,7 @@ function App() {
 
   const rollUnholdDice = () => {
     setDice((prevDice) => {
-      return prevDice.map((dice) =>
+      return prevDice.map((dice, i) =>
         !dice.hold ? { ...dice, value: randomValue() } : dice
       );
     });
@@ -48,7 +59,7 @@ function App() {
           <Die {...die} holdDice={holdDice} key={die.id} />
         ))}
         <button onClick={rollUnholdDice} className="roll-dice">
-          Roll
+          {!win ? "Roll" : "Reset"}
         </button>
       </div>
     </div>
