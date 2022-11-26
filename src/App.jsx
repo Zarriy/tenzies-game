@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Confetti from "react-confetti";
 import Die from "./die";
 import "./App.css";
 
@@ -55,6 +56,7 @@ function App() {
 
   return (
     <div className="game-div">
+      {win && <Confetti />}
       <h1>Tenzies</h1>
       <p>
         Roll until all dice are the same. Click each die to freeze it at its
