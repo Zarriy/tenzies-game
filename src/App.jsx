@@ -20,6 +20,14 @@ function App() {
     return array;
   }
 
+  const holdDice = (id) => {
+    setDice((prevDice) => {
+      return prevDice.map((die) =>
+        die.id === id ? { ...die, hold: !die.hold } : die
+      );
+    });
+  };
+
   return (
     <div className="game-div">
       <h1>Tenzies</h1>
@@ -29,7 +37,7 @@ function App() {
       </p>
       <div className="Dice-Box">
         {dice.map((die) => (
-          <Die dice={die.value} key={die.id} />
+          <Die {...die} holdDice={holdDice} key={die.id} />
         ))}
         <button className="roll-dice">Roll</button>
       </div>
