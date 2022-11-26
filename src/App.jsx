@@ -28,6 +28,14 @@ function App() {
     });
   };
 
+  const rollUnholdDice = () => {
+    setDice((prevDice) => {
+      return prevDice.map((dice) =>
+        !dice.hold ? { ...dice, value: randomValue() } : dice
+      );
+    });
+  };
+
   return (
     <div className="game-div">
       <h1>Tenzies</h1>
@@ -39,7 +47,9 @@ function App() {
         {dice.map((die) => (
           <Die {...die} holdDice={holdDice} key={die.id} />
         ))}
-        <button className="roll-dice">Roll</button>
+        <button onClick={rollUnholdDice} className="roll-dice">
+          Roll
+        </button>
       </div>
     </div>
   );
