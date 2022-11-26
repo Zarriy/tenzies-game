@@ -20,6 +20,7 @@
   width: 500px;
   margin: 0 auto;
   padding: 10px 20px;
+  cursor: pointer;
 }
 .roll-dice {
   background-color: #0b2434;
