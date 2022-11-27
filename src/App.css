@@ -2,7 +2,7 @@
   margin: 0 auto;
 }
 .game-div {
-  width: 600px;
+  max-width: 600px;
   background-color: white;
   border-radius: 11px;
   padding: 15px 30px;
@@ -29,4 +29,36 @@
 }
 .roll-dice:hover {
   background-color: #340b2eee;
+}
+
+@media screen and (max-width: 660px) {
+  body {
+    padding: 40px 20px;
+  }
+  .game-div {
+    max-width: 400px;
+  }
+  .Dice-Box {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    width: 300px;
+  }
+  .roll-dice {
+    background-color: #0b2434;
+    color: white;
+    grid-area: 6/1;
+    grid-column: 1/-1;
+  }
+  h1 {
+    font-size: 2.8em;
+  }
+}
+@media screen and (max-width: 430px) {
+  .game-div {
+    width: calc(100% - 40px);
+    padding: 10px 20px;
+  }
+  .Dice-Box {
+    width: calc(80% - 40px);
+  }
 }
